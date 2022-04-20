@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Choose/Track</title>
+    
+</head>
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #242582;">
+    <a class="navbar-brand" href="#">🥗Flora nursery</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Plants</a>
+          <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">Flowering plants</a>
+              <a href="#" class="dropdown-item">medicinal creepers plants</a>
+              <a href="#" class="dropdown-item">air Purifier plants</a>
+             <a href="#" class="dropdown-item">show plants</a>
+            <a href="#" class="dropdown-item">consumable plants</a>
+          </div>
+      </div>
+    <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Tools</a>
+          <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">shovel</a>
+              <a href="#" class="dropdown-item">hand trowel</a>
+              <a href="#" class="dropdown-item">Hoe</a>
+            <a href="#" class="dropdown-item">spade</a>
+            <a href="#" class="dropdown-item">fork</a>
+          </div>
+      </div>
+     <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Gifts</a>
+          <div class="dropdown-menu">
+              <a href="#" class="dropdown-item">groot planter</a>
+              <a href="#" class="dropdown-item">Terrarium Candle</a>
+              <a href="#" class="dropdown-item">plant seeds</a>
+            <a href="#" class="dropdown-item">plants</a>
+            <a href="#" class="dropdown-item">terrarium aquarium</a>  
+          </div>
+            
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li> -->
+      </ul>
+      <form action="/search" method="GET" class="form-inline my-2 my-lg-0 ml-2">
+        <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ml-auto">
+        <% if(!currentUser){ %>
+        <li class="nav-item"><a class="nav-link" href="/login"><button class="btn btn-primary mr-2">Sign in</button></a></li>
+        <li class="nav-item"><a class="nav-link" href="/register"><button class="btn btn-primary mr-2" type="submit">Sign up</button></a></li>
+        <% } else{ %>
+        <li class="nav-item"><a class="nav-link" href="/logout"><button class="btn btn-danger mr-2" type="submit">Logout</button></a></li>
+        <% } %>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container">
+            <form action="/launch" method="post">
+        <div class="row m-0 p-2 pl-8 pr-8">
+            <div class="col">
+                
+                <h5 class="form_heading">Product Details*</h5>
+            </div>
+        
+            <div class="col-12">
+            
+               
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Product Name</span>
+                    </div>
+                    <input type="text" class="form-control"aria-label="Name" name="ecomuser[name]" aria-describedby="basic-addon1" required>
+                  </div>
+                 
+               
+            </div>
+            
+
+            <div class="col-12">
+                <div class="row">
+                   <div class="col-12 col-md-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Brand</span>
+                        </div >
+                        <input type="text" class="form-control"aria-label="Name" name="ecomuser[brand]" aria-describedby="basic-addon1" required>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="basic-addon1">Submitted BY</span>
+                            </div>
+                            <input type="text" class="form-control"aria-label="Name" name="ecomuser[publisher]" aria-describedby="basic-addon1" required>
+                          </div>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">Color</span>
+                                </div>
+                                <input type="text" class="form-control"aria-label="Name" name="ecomuser[color]" aria-describedby="basic-addon1" required>
+                              </div>
+                            </div>                   
+                </div>
+
+
+
+        </div>
+       
+        <div class="col-12">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" >Description</span>
+                </div>
+                <textarea class="form-control" name="ecomuser[description]" aria-label="With textarea" required></textarea>
+              </div>
+            </div>
+
+           
+                                   
+
+            <div class="col">
+                <hr>
+                <h5 class="form_heading">Classification*</h5>
+            </div>
+                <div class="col-12">
+                        <div class="row justify-content-between">
+                            <div class="col-md-5 m-2">
+                                <h6>Genre</h6>
+                                <div class="row">
+                                    <div class="col-6">
+                        <input type="radio"  id="Books" value="Books" name="ecomuser[genre]"><label for="Books">Books</label><br>
+                        <input type="radio" id="Beauty" value="Beauty" name="ecomuser[genre]"><label for="Beauty">Beauty</label><br>
+                        <input type="radio" id="Mobiles" value="Mobiles" name="ecomuser[genre]"><label for="Mobiles">Mobiles</label><br>
+                        <input type="radio" id="Women'sFashion" value="Women'sFashion" name="ecomuser[genre]"><label for="Women'sFashion">Women'sFashion</label><br>
+                                    </div>
+                                    <div class="col-6">
+                        <input type="radio"  id="Men'sFashion" value="Men'sFashion" name="ecomuser[genre]"><label for="Men'sFashion">Men'sFashion</label><br>
+                        <input type="radio"  id="Sports" value="Sports" name="ecomuser[genre]"><label for="Sports">Sports</label><br>
+                        <input type="radio"  id="Bags" value="Bags" name="ecomuser[genre]"><label for="Bags">Bags</label><br>
+                        <input type="radio"  id="SmartHome" value="SmartHome" name="ecomuser[genre]"><label for="SmartHome">SmartHome</label><br>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="col-md-5 m-2">
+                        
+                        <h6>Language</h6>
+                        <div class="row">
+                            <div class="col-6">
+                                
+                                <input type="radio"  id="English" value="English" name="ecomuser[language]"><label for="english">English</label><br>
+                                <input type="radio" id="Telugu" value="Telugu" name="ecomuser[language]"><label for="telugu">Telugu</label><br>
+                                <input type="radio"  id="Hindi" value="Hindi" name="ecomuser[language]"><label for="hindi">Hindi</label><br>
+                        
+
+                            </div>
+                            <div class="col-6">
+                                <input type="radio"  id="Kannada" value="Kannada" name="ecomuser[language]"><label for="kannada">Kannada</label><br>
+                        <input type="radio"  id="Tamil" value="Tamil" name="ecomuser[language]"><label for="tamil">Tamil</label><br>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <hr>
+                    <h5 class="form_heading">Image*</h5>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-md-5">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1">Image Link</span>
+                                </div>
+                                <input type="text" class="form-control"aria-label="Link" aria-describedby="basic-addon1" required name="ecomuser[image_link]>
+                              </div>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <p>OR</p>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <input type="file" name="" id="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <hr>
+                    <h5 class="form_heading">Product Links</h5>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+            <div class="col-md-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">Amazon Link</span>
+                    </div>
+                    <input type="text" class="form-control"aria-label="Amazon Link" name="ecomuser[amazon_link]" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Flikart Link</span>
+                        </div>
+                        <input type="text" class="form-control"aria-label="Flipkart Link" name="ecomuser[flipkart_link]" aria-describedby="basic-addon1">
+                      </div>
+                </div>
+                        
+
+                    </div>   
+                </div>
+         </div>
+
+         <div class="col">
+          <hr>
+          <h5 class="form_heading">keepa&review Links</h5>
+      </div>
+      <div class="col-12">
+          <div class="row">
+  <div class="col-md-6">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Keepa Link</span>
+          </div>
+          <input type="text" class="form-control" name="ecomuser[keepa_link]" aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="col-md-6">
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Review Link</span>
+              </div>
+              <input type="text" class="form-control" name="ecomuser[ebook_link]" aria-describedby="basic-addon1">
+            </div>
+      </div>
+              
+
+          </div>   
+      </div>
+
+    
+     
+      
+          
+      </div>
+                <div style="float: right;" class="mb-3">
+                    <input type="submit" class="btn btn-success" ></input>
+                 </div>
+
+                </form>
+        </div>
+        <script>
+      
+      document.getElementById("yes").addEventListener('change', function(){
+      document.getElementById("ecommercelink").required = !this.checked ;
+  })
+      document.getElementById("no").addEventListener('change', function(){
+      document.getElementById("ecommercelink").required = this.checked ;
+  })
+      </script>
+      
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  
+  </body>
+  </html>
